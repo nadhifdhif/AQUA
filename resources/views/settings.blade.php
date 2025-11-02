@@ -2,7 +2,7 @@
 
 @section('content')
 <div 
-    x-data="{ open: false, systemOpen: false, themeOpen: false }" 
+    x-data="{ open: false, systemOpen: false, themeOpen: false, notifOpen: false }" 
     x-init="setTimeout(() => document.body.classList.add('page-enter-active'), 50)"
     class="text-center relative overflow-hidden transition-opacity duration-500 ease-in-out page-enter" 
     x-cloak
@@ -13,19 +13,14 @@
     </h1>
 
     <!-- Layer blur aktif saat modal terbuka -->
-    <div x-cloak x-show="open || systemOpen || themeOpen"
-         x-transition:enter="transition-opacity duration-300 ease-out"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition-opacity duration-300 ease-in"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0"
-         class="absolute inset-0 bg-white/30 backdrop-blur-sm z-0 rounded-2xl">
+    <div x-cloak x-show="open || systemOpen || themeOpen || notifOpen"
+         x-transition.opacity
+         class="absolute inset-0 bg-white/30 backdrop-blur-sm z-10 rounded-2xl">
     </div>
 
     <!-- Grid utama -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center transition-all duration-500 relative z-20"
-         :class="(open || systemOpen || themeOpen) ? 'scale-90 blur-sm opacity-40 pointer-events-none' : 'scale-100 blur-0 opacity-100'">
+         :class="(open || systemOpen || themeOpen || notifOpen) ? 'scale-90 blur-sm opacity-40 pointer-events-none' : 'scale-100 blur-0 opacity-100'">
 
         <!-- Profil Pengguna -->
         <div class="bg-white/80 rounded-2xl shadow-lg p-6">
@@ -53,12 +48,7 @@
         <!-- Tema Tampilan -->
         <div class="relative">
             <div x-show="!themeOpen"
-                 x-transition:enter="transition transform duration-400 ease-out"
-                 x-transition:enter-start="scale-90 opacity-0"
-                 x-transition:enter-end="scale-100 opacity-100"
-                 x-transition:leave="transition transform duration-400 ease-in"
-                 x-transition:leave-start="scale-100 opacity-100"
-                 x-transition:leave-end="scale-90 opacity-0"
+                 x-transition
                  class="bg-white/80 rounded-2xl shadow-lg p-6 relative z-10">
                 <h3 class="text-lg font-semibold">Tema Tampilan</h3>
                 <p class="text-gray-600 text-sm mb-4">Sesuaikan mode terang atau gelap</p>
@@ -72,12 +62,7 @@
         <!-- Bahasa -->
         <div class="relative">
             <div x-show="!open"
-                 x-transition:enter="transition transform duration-400 ease-out"
-                 x-transition:enter-start="scale-90 opacity-0"
-                 x-transition:enter-end="scale-100 opacity-100"
-                 x-transition:leave="transition transform duration-400 ease-in"
-                 x-transition:leave-start="scale-100 opacity-100"
-                 x-transition:leave-end="scale-90 opacity-0"
+                 x-transition
                  class="bg-white/80 rounded-2xl shadow-lg p-6 relative z-10">
                 <h3 class="text-lg font-semibold">Bahasa</h3>
                 <p class="text-gray-600 text-sm mb-4">Atur bahasa antarmuka</p>
@@ -89,21 +74,23 @@
         </div>
 
         <!-- Notifikasi -->
-        <div class="bg-white/80 rounded-2xl shadow-lg p-6">
-            <h3 class="text-lg font-semibold">Notifikasi</h3>
-            <p class="text-gray-600 text-sm mb-4">Kelola pemberitahuan sistem</p>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">Kelola</button>
+        <div class="relative">
+            <div x-show="!notifOpen"
+                 x-transition
+                 class="bg-white/80 rounded-2xl shadow-lg p-6 relative z-10">
+                <h3 class="text-lg font-semibold">Notifikasi</h3>
+                <p class="text-gray-600 text-sm mb-4">Kelola pemberitahuan sistem</p>
+                <button @click="notifOpen = true"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    Kelola
+                </button>
+            </div>
         </div>
 
         <!-- Tentang Sistem -->
         <div class="relative">
             <div x-show="!systemOpen"
-                 x-transition:enter="transition transform duration-400 ease-out"
-                 x-transition:enter-start="scale-90 opacity-0"
-                 x-transition:enter-end="scale-100 opacity-100"
-                 x-transition:leave="transition transform duration-400 ease-in"
-                 x-transition:leave-start="scale-100 opacity-100"
-                 x-transition:leave-end="scale-90 opacity-0"
+                 x-transition
                  class="bg-white/80 rounded-2xl shadow-lg p-6 relative z-10">
                 <h3 class="text-lg font-semibold">Tentang Sistem</h3>
                 <p class="text-gray-600 text-sm mb-4">Lihat versi & pengembang</p>
@@ -116,22 +103,13 @@
     </div>
 
     <!-- Card Bahasa -->
-    <div x-cloak 
-         x-show="open"
-         x-transition:enter="transition-all transform duration-500 ease-out delay-[20ms]"
-         x-transition:enter-start="opacity-0 scale-95 translate-y-5 blur-[2px]"
-         x-transition:enter-end="opacity-100 scale-100 translate-y-0 blur-0"
-         x-transition:leave="transition-all transform duration-400 ease-in"
-         x-transition:leave-start="opacity-100 scale-100 translate-y-0 blur-0"
-         x-transition:leave-end="opacity-0 scale-95 translate-y-5 blur-[2px]"
+    <div x-cloak x-show="open" x-transition
          class="absolute inset-0 flex items-center justify-center z-50">
-
-        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md transform transition-all animate-[float_3s_ease-in-out_infinite]">
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite]">
             <h3 class="text-2xl font-semibold mb-6 text-gray-800">Pilih Bahasa</h3>
-
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <template x-for="lang in ['id','gb','sa','fr','es','pt','cn','jp','kr']">
-                    <button class="bg-blue-400 hover:bg-blue-500 text-white py-2 rounded-lg transition shadow-md hover:shadow-lg flex justify-center items-center gap-2">
+                    <button class="bg-blue-400 hover:bg-blue-500 text-white py-2 rounded-lg transition flex justify-center items-center gap-2">
                         <span :class="'fi fi-' + lang"></span>
                         <span x-text="{
                             id: 'Indonesia', gb: 'English', sa: 'العربية', fr: 'Français',
@@ -140,70 +118,81 @@
                     </button>
                 </template>
             </div>
-
             <button @click="open = false"
-                    class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition shadow-md hover:shadow-lg">
+                    class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
                 Kembali
             </button>
         </div>
     </div>
 
     <!-- Card Tema Tampilan -->
-    <div x-cloak 
-         x-show="themeOpen"
-         x-transition:enter="transition-all transform duration-500 ease-out delay-[20ms]"
-         x-transition:enter-start="opacity-0 scale-95 translate-y-5 blur-[2px]"
-         x-transition:enter-end="opacity-100 scale-100 translate-y-0 blur-0"
-         x-transition:leave="transition-all transform duration-400 ease-in"
-         x-transition:leave-start="opacity-100 scale-100 translate-y-0 blur-0"
-         x-transition:leave-end="opacity-0 scale-95 translate-y-5 blur-[2px]"
+    <div x-cloak x-show="themeOpen" x-transition
          class="absolute inset-0 flex items-center justify-center z-50">
-
-        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md transform transition-all animate-[float_3s_ease-in-out_infinite]">
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite]">
             <h3 class="text-2xl font-semibold mb-6 text-gray-800">Tema Tampilan</h3>
-
             <div class="flex justify-center gap-6 mb-8">
-                <button 
-                    @click="document.documentElement.classList.remove('dark'); themeOpen = false"
-                    class="px-5 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-800 transition">
+                <button @click="document.documentElement.classList.remove('dark'); themeOpen = false"
+                        class="px-5 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-800 transition">
                     🌞 Mode Terang
                 </button>
-                <button 
-                    @click="document.documentElement.classList.add('dark'); themeOpen = false"
-                    class="px-5 py-2 rounded-xl bg-gray-900 text-white hover:bg-gray-800 transition">
+                <button @click="document.documentElement.classList.add('dark'); themeOpen = false"
+                        class="px-5 py-2 rounded-xl bg-gray-900 text-white hover:bg-gray-800 transition">
                     🌙 Mode Gelap
                 </button>
             </div>
-
             <button @click="themeOpen = false"
-                    class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition shadow-md hover:shadow-lg">
+                    class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
                 Tutup
             </button>
         </div>
     </div>
 
-    <!-- Card Tentang Sistem -->
-    <div x-cloak 
-        x-show="systemOpen"
-        x-transition:enter="transition-all transform duration-500 ease-out delay-[20ms]"
-        x-transition:enter-start="opacity-0 scale-95 translate-y-5 blur-[2px]"
-        x-transition:enter-end="opacity-100 scale-100 translate-y-0 blur-0"
-        x-transition:leave="transition-all transform duration-400 ease-in"
-        x-transition:leave-start="opacity-100 scale-100 translate-y-0 blur-0"
-        x-transition:leave-end="opacity-0 scale-95 translate-y-5 blur-[2px]"
-        class="absolute inset-0 flex items-center justify-center z-50">
+    <!-- Card Notifikasi -->
+    <div x-cloak x-show="notifOpen" x-transition
+         class="absolute inset-0 flex items-center justify-center z-50">
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] text-left">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Pengaturan Notifikasi</h3>
 
-        <div class="bg-white/95 rounded-3xl p-10 px-12 shadow-2xl w-full max-w-2xl transform transition-all animate-[float_3s_ease-in-out_infinite]">
+            <div class="space-y-4 mb-8">
+                <label class="flex items-center justify-between">
+                    <span>Email Notifikasi</span>
+                    <input type="checkbox" checked disabled class="toggle toggle-primary">
+                </label>
+                <label class="flex items-center justify-between">
+                    <span>Notifikasi Pop-up</span>
+                    <input type="checkbox" disabled class="toggle toggle-primary">
+                </label>
+                <label class="flex items-center justify-between">
+                    <span>Suara Notifikasi</span>
+                    <input type="checkbox" disabled class="toggle toggle-primary">
+                </label>
+            </div>
+
+            <div class="flex justify-center gap-4">
+                <button @click="notifOpen = false"
+                        class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
+                    Tutup
+                </button>
+                <button disabled
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg opacity-60 cursor-not-allowed">
+                    Simpan (Dummy)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Tentang Sistem -->
+    <div x-cloak x-show="systemOpen" x-transition
+         class="absolute inset-0 flex items-center justify-center z-50">
+        <div class="bg-white/95 rounded-3xl p-10 px-12 shadow-2xl w-full max-w-2xl animate-[float_3s_ease-in-out_infinite]">
             <h3 class="text-2xl font-semibold mb-4 text-gray-800">Tentang Sistem</h3>
             <p class="text-gray-600 mb-4">AQUA (Automatic Quality Utility for Agriculture)</p>
-
             <ul class="text-left text-gray-700 list-disc list-inside mb-6 leading-relaxed">
                 <li><span class="font-semibold">Versi Sistem:</span> 1.0</li>
                 <li><span class="font-semibold">Pengembang:</span> Universitas Pendidikan Indonesia dan SMKN 6 Bandung</li>
             </ul>
-
             <button @click="systemOpen = false"
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition shadow-md hover:shadow-lg">
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
                 Tutup
             </button>
         </div>
@@ -213,42 +202,11 @@
 <!-- Alpine.js -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-<!-- Efek mengambang + transisi halaman -->
 <style>
 [x-cloak] { display: none !important; }
-
-[x-show="open"], [x-show="systemOpen"], [x-show="themeOpen"] > div {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.page-enter {
-  opacity: 0;
-  transform: scale(0.97);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.page-enter-active {
-  opacity: 1;
-  transform: scale(1);
-}
-.page-leave-active {
-  opacity: 0;
-  transform: scale(0.96);
-  filter: blur(3px);
-  transition: all 0.5s ease;
-}
-
-.fi {
-  width: 20px;
-  height: 15px;
-  border-radius: 2px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
-}
+@keyframes float { 0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)} }
+.page-enter{opacity:0;transform:scale(0.97);transition:opacity .6s ease,transform .6s ease;}
+.page-enter-active{opacity:1;transform:scale(1);}
+.page-leave-active{opacity:0;transform:scale(0.96);filter:blur(3px);transition:all .5s ease;}
 </style>
 @endsection
