@@ -12,15 +12,16 @@
     >
         <h1 class="text-3xl font-semibold text-[#004aad] mb-8 text-center drop-shadow-sm">Device Control</h1>
 
+        <!-- Grid 3 kolom -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @php
                 $devices = [
-                    ['name' => 'Pompa Air', 'status' => 'Aktif', 'color' => 'green', 'button' => 'Matikan', 'buttonColor' => 'red'],
-                    ['name' => 'Kipas Pendingin', 'status' => 'Nonaktif', 'color' => 'red', 'button' => 'Nyalakan', 'buttonColor' => 'green'],
-                    ['name' => 'Lampu Greenhouse', 'status' => 'Aktif', 'color' => 'green', 'button' => 'Matikan', 'buttonColor' => 'red'],
-                    ['name' => 'Sensor Kelembapan Tanah', 'status' => 'Aktif', 'color' => 'green', 'button' => 'Matikan', 'buttonColor' => 'red'],
-                    ['name' => 'Sensor Hujan', 'status' => 'Aktif', 'color' => 'green', 'button' => 'Matikan', 'buttonColor' => 'red'],
-                    ['name' => 'Sensor Emisi Karbon', 'status' => 'Nonaktif', 'color' => 'red', 'button' => 'Nyalakan', 'buttonColor' => 'green'],
+                    ['name' => 'Pompa Air', 'status' => 'Aktif'],
+                    ['name' => 'Kipas Pendingin', 'status' => 'Nonaktif'],
+                    ['name' => 'Lampu Greenhouse', 'status' => 'Aktif'],
+                    ['name' => 'Sensor Kelembapan Tanah', 'status' => 'Aktif'],
+                    ['name' => 'Sensor Hujan', 'status' => 'Aktif'],
+                    ['name' => 'Sensor Emisi Karbon', 'status' => 'Nonaktif'],
                 ];
             @endphp
 
@@ -28,15 +29,28 @@
             <div 
                 x-data="{ visible: false }"
                 x-init="setTimeout(() => visible = true, {{ $index * 120 + 200 }})"
-                class="bg-white/60 rounded-2xl shadow-sm p-5 text-center backdrop-blur-md border border-white/20 transform transition-all duration-700 ease-out"
+                class="rounded-2xl p-6 text-center backdrop-blur-md border transform transition-all duration-700 ease-out hover:shadow-lg hover:scale-[1.02]
+                       border-white/20 shadow-sm bg-white/70"
                 :class="visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-80 translate-y-3 scale-[0.98]'"
             >
-                <h2 class="text-lg font-semibold mb-2 text-gray-800">{{ $device['name'] }}</h2>
-                <p class="text-gray-600 mb-3">Status: 
-                    <span class="font-semibold text-{{ $device['color'] }}-600">{{ $device['status'] }}</span>
+                <h2 class="text-[15px] font-semibold mb-2 text-gray-800 text-ellipsis overflow-hidden whitespace-nowrap tracking-tight">
+                    {{ $device['name'] }}
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    Status: 
+                    @if($device['status'] === 'Aktif')
+                        <span class="font-semibold text-green-600">Aktif</span>
+                    @else
+                        <span class="font-semibold text-red-600">Nonaktif</span>
+                    @endif
                 </p>
-                <button class="bg-{{ $device['buttonColor'] }}-500 hover:bg-{{ $device['buttonColor'] }}-600 text-white px-5 py-2 rounded-xl transition duration-300">
-                    {{ $device['button'] }}
+
+                <!-- SEMUA tombol biru solid -->
+                <button 
+                    class="px-5 py-2.5 rounded-xl font-semibold text-white shadow-md
+                           bg-[#2563eb] hover:bg-[#1d4ed8] active:scale-95
+                           focus:ring-2 focus:ring-blue-300 focus:outline-none transition duration-300">
+                    {{ $device['status'] === 'Aktif' ? 'Matikan' : 'Nyalakan' }}
                 </button>
             </div>
             @endforeach

@@ -190,7 +190,7 @@
 
 
     <footer>
-        © {{ date('Y') }} AQUA — Developed by Naufal Nadhif
+        © {{ date('Y') }} AQUA — Developed by Universitas Pendidikan Indonesia and SMKN 6 Bandung
     </footer>
 </body>
 </html>
