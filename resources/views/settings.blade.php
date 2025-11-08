@@ -22,12 +22,27 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center transition-all duration-500 relative z-20"
          :class="(open || systemOpen || themeOpen || notifOpen) ? 'scale-90 blur-sm opacity-40 pointer-events-none' : 'scale-100 blur-0 opacity-100'">
 
-        <!-- Profil Pengguna -->
-        <div class="bg-white/80 rounded-2xl shadow-lg p-6">
-            <h3 class="text-lg font-semibold">Profil Pengguna</h3>
-            <p class="text-gray-600 text-sm mb-4">Kelola nama dan informasi akun</p>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">Edit</button>
+    <!-- Profil Pengguna -->
+    <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl">
+        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5.121 17.804A9.003 9.003 0 0112 15c2.486 0 4.735.996 6.364 2.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
         </div>
+        <h3 class="text-lg font-semibold text-gray-800">Profil Pengguna</h3>
+        <p class="text-gray-600 text-sm mt-1 mb-4">Kelola nama dan informasi akun</p>
+        <a 
+            href="{{ route('profile.edit') }}"
+            @click.prevent="
+                document.body.classList.add('page-leave-active');
+                setTimeout(() => window.location.href='{{ route('profile.edit') }}', 450);
+            "
+            class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-xl active:scale-95 transition-all duration-200">
+            Edit
+        </a>
+    </div>
+
 
         <!-- Keamanan -->
         <div class="bg-white/80 rounded-2xl shadow-lg p-6">
