@@ -14,34 +14,40 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-        /* Background */
+        /* ===== Background Gradasi Laut ===== */
         .main-bg {
-            background-image: url('{{ asset("assets/images/Background.png") }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(180deg, #d8ecff 0%, #b8d5f5 40%, #8bb9f1 100%);
             min-height: 100vh;
         }
 
-        /* Sidebar */
+        /* ===== Sidebar ===== */
         aside {
             background-color: rgba(118, 147, 190, 0.95);
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(3px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* Bagian bawah sidebar (user info) */
+        /* ===== User Info di Bawah Sidebar ===== */
         .user-section {
-            background-color: #839dd4ff; /* biru */
+            background-color: #839dd4;
             text-align: center;
             padding: 1rem;
             font-weight: 500;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* ====== Animasi Fade-In Smooth ====== */
+        /* ===== Hover & Active Menu ===== */
+        nav a {
+            transition: all 0.25s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== Animasi Fade-In Smooth ===== */
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -56,9 +62,27 @@
         .fade-in-up {
             animation: fadeInUp 0.6s ease-out both;
         }
+
+        /* ===== Responsive Sidebar ===== */
+        @media (max-width: 768px) {
+            aside {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 50;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .user-section {
+                display: none;
+            }
+        }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased text-gray-900">
     <div class="min-h-screen flex">
         <!-- Sidebar -->
         <aside class="w-64 text-gray-200">
@@ -69,29 +93,25 @@
                 <nav class="mt-4">
                     <!-- Dashboard -->
                     <a href="{{ route('dashboard') }}"
-                       class="block px-6 py-3 rounded hover:bg-gray-700/60 transition 
-                       {{ request()->routeIs('dashboard') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
+                       class="block px-6 py-3 rounded {{ request()->routeIs('dashboard') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
                         Dashboard
                     </a>
 
                     <!-- Sensor Data -->
                     <a href="{{ route('sensor.data') }}"
-                       class="block px-6 py-3 rounded hover:bg-gray-700/60 transition 
-                       {{ request()->routeIs('sensor.data') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
+                       class="block px-6 py-3 rounded {{ request()->routeIs('sensor.data') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
                         Sensor Data
                     </a>
 
                     <!-- Device Control -->
                     <a href="{{ route('device-control') }}"
-                       class="block px-6 py-3 rounded hover:bg-gray-700/60 transition 
-                       {{ request()->routeIs('device-control') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
+                       class="block px-6 py-3 rounded {{ request()->routeIs('device-control') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
                         Device Control
                     </a>
 
                     <!-- Settings -->
                     <a href="{{ route('settings') }}"
-                       class="block px-6 py-3 rounded hover:bg-gray-700/60 transition 
-                       {{ request()->routeIs('settings') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
+                       class="block px-6 py-3 rounded {{ request()->routeIs('settings') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
                         Settings
                     </a>
                 </nav>
@@ -113,7 +133,7 @@
 
         <!-- Main content -->
         <div class="flex-1 flex flex-col main-bg">
-            <main class="flex-1 p-6">
+            <main class="flex-1 p-6 fade-in-up">
                 @yield('content')
             </main>
         </div>
