@@ -26,7 +26,7 @@
         @php
             $cards = [
                 ['title' => 'Profil Pengguna', 'desc' => 'Kelola nama dan informasi akun', 'btn' => 'Edit', 'action' => 'profileOpen = true'],
-                ['title' => 'Keamanan', 'desc' => 'Ubah kata sandi akun Anda', 'btn' => 'Update', 'action' => "window.location.href='{{ route('profile.edit') }}'"],
+                ['title' => 'Keamanan', 'desc' => 'Ubah kata sandi akun Anda', 'btn' => 'Update', 'action' => "window.location.href='" . route('profile.edit') . "'"],
                 ['title' => 'Tema Tampilan', 'desc' => 'Sesuaikan mode terang atau gelap', 'btn' => 'Sesuaikan', 'action' => 'themeOpen = true'],
                 ['title' => 'Bahasa', 'desc' => 'Atur bahasa antarmuka', 'btn' => 'Pilih', 'action' => 'open = true'],
                 ['title' => 'Notifikasi', 'desc' => 'Kelola pemberitahuan sistem', 'btn' => 'Kelola', 'action' => 'notifOpen = true'],
