@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/graph', function () {
+    return view('graph');
+})->name('graph');
+
 Route::get('/device-control', function () {
     return view('device-control');
 })->name('device-control');

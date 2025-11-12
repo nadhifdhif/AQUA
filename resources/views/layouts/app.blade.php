@@ -109,6 +109,12 @@
                         Device Control
                     </a>
 
+                    <!-- Graph -->
+                    <a href="{{ route('graph') }}"
+                       class="block px-6 py-3 rounded {{ request()->routeIs('graph') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
+                        Graph
+                    </a>
+
                     <!-- Settings -->
                     <a href="{{ route('settings') }}"
                        class="block px-6 py-3 rounded {{ request()->routeIs('settings') ? 'bg-gray-700/80 text-white' : 'text-gray-300' }}">
