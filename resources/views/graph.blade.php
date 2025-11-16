@@ -5,24 +5,42 @@
     <h1 class="text-3xl font-bold text-blue-700">📊 Grafik Sensor</h1>
 
     <div x-data="chartSlider()" x-init="initChart()" 
-        class="bg-white/90 shadow-xl rounded-2xl p-8 w-full max-w-3xl"> <!-- max-w dikecilin -->
+        class="bg-white/90 shadow-xl rounded-2xl p-8 w-full max-w-4xl">
 
+        <!-- Title -->
         <h2 class="text-xl font-semibold text-gray-800 mb-4" x-text="title"></h2>
 
-        <!-- Canvas container biar nggak terlalu besar -->
-        <div class="w-full mx-auto" style="max-height: 260px;">
-            <canvas id="chartCanvas" height="150"></canvas> <!-- height dikecilin -->
+        <!-- Canvas container -->
+        <div class="w-full mx-auto" style="max-height: 330px;">
+            <canvas id="chartCanvas" height="190"></canvas>
         </div>
 
-        <!-- Slider dots -->
-        <div class="flex justify-center mt-6 space-x-3">
-            <button @click="setSlide(0)"
-                :class="slide === 0 ? 'bg-blue-600' : 'bg-gray-400'"
-                class="w-3 h-3 rounded-full transition-all"></button>
+        <!-- Navigation -->
+        <div class="flex items-center justify-center mt-6 space-x-6">
 
-            <button @click="setSlide(1)"
-                :class="slide === 1 ? 'bg-blue-600' : 'bg-gray-400'"
-                class="w-3 h-3 rounded-full transition-all"></button>
+            <!-- Left Arrow -->
+            <button @click="prevSlide()"
+                class="px-3 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">
+                ←
+            </button>
+
+            <!-- Dots -->
+            <div class="flex space-x-3">
+                <button @click="setSlide(0)"
+                    :class="slide === 0 ? 'bg-blue-600' : 'bg-gray-400'"
+                    class="w-3 h-3 rounded-full transition-all"></button>
+
+                <button @click="setSlide(1)"
+                    :class="slide === 1 ? 'bg-blue-600' : 'bg-gray-400'"
+                    class="w-3 h-3 rounded-full transition-all"></button>
+            </div>
+
+            <!-- Right Arrow -->
+            <button @click="nextSlide()"
+                class="px-3 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">
+                →
+            </button>
+
         </div>
 
     </div>
@@ -75,7 +93,7 @@ function chartSlider() {
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false, // penting biar tinggi kecil
+                    maintainAspectRatio: false,
                     plugins: { legend: { labels: { color: '#1e293b' } } },
                     scales: {
                         y: { ticks: { color: '#1e293b' } },
@@ -98,6 +116,14 @@ function chartSlider() {
             this.chart.data.datasets[0].backgroundColor = data.bg;
 
             this.chart.update();
+        },
+
+        nextSlide() {
+            this.setSlide((this.slide + 1) % 2);
+        },
+
+        prevSlide() {
+            this.setSlide((this.slide - 1 + 2) % 2);
         }
     }
 }
@@ -112,4 +138,5 @@ function chartSlider() {
     100% { opacity: 1; transform: translateY(0); }
 }
 </style>
+
 @endsection
