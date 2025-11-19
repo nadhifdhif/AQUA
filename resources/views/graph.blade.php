@@ -4,13 +4,15 @@
 <div class="flex flex-col items-center justify-center min-h-[90vh] text-center fade-in-up space-y-8">
     <h1 class="text-3xl font-bold text-blue-700">📊 Grafik Sensor</h1>
 
-    <div x-data="chartSlider()" x-init="initChart()" 
+    <div 
+        x-data="chartSlider()" 
+        x-init="initChart()"  
         class="bg-white/90 shadow-xl rounded-2xl p-8 w-full max-w-4xl">
 
-        <!-- Title -->
+        <!-- Dynamic Title -->
         <h2 class="text-xl font-semibold text-gray-800 mb-4" x-text="title"></h2>
 
-        <!-- Canvas container -->
+        <!-- Chart -->
         <div class="w-full mx-auto" style="max-height: 330px;">
             <canvas id="chartCanvas" height="190"></canvas>
         </div>
@@ -18,7 +20,7 @@
         <!-- Navigation -->
         <div class="flex items-center justify-center mt-6 space-x-6">
 
-            <!-- Left Arrow -->
+            <!-- Left -->
             <button @click="prevSlide()"
                 class="px-3 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">
                 ←
@@ -35,7 +37,7 @@
                     class="w-3 h-3 rounded-full transition-all"></button>
             </div>
 
-            <!-- Right Arrow -->
+            <!-- Right -->
             <button @click="nextSlide()"
                 class="px-3 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">
                 →
@@ -94,7 +96,10 @@ function chartSlider() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { labels: { color: '#1e293b' } } },
+                    animation: false,
+                    plugins: {
+                        legend: { labels: { color: '#1e293b' } }
+                    },
                     scales: {
                         y: { ticks: { color: '#1e293b' } },
                         x: { ticks: { color: '#1e293b' } }
@@ -106,16 +111,14 @@ function chartSlider() {
         setSlide(i) {
             this.slide = i;
 
+            // Pilih dataset
             const data = i === 0 ? this.suhu : this.lembap;
             this.title = data.title;
 
-            this.chart.data.labels = data.labels;
-            this.chart.data.datasets[0].data = data.values;
-            this.chart.data.datasets[0].label = data.title;
-            this.chart.data.datasets[0].borderColor = data.color;
-            this.chart.data.datasets[0].backgroundColor = data.bg;
-
-            this.chart.update();
+            // DESTROY chart lama lalu buat baru (fix cache bug)
+            this.chart.destroy();
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            this.chart = new Chart(ctx, this.getConfig(data));
         },
 
         nextSlide() {
