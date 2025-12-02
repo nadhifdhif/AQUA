@@ -36,10 +36,10 @@
 
         @foreach ($cards as $card)
         <div class="relative">
-            <div class="bg-white/80 rounded-2xl shadow-md p-5 relative z-10 min-h-[150px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+            <div class="bg-white/80 rounded-2xl shadow-md p-5 relative z-10 min-h-[150px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-[#23242b]">
                 <div class="text-center">
                     <h3 class="text-[17px] font-semibold">{{ $card['title'] }}</h3>
-                    <p class="text-gray-600 text-sm mt-1 mb-3 leading-snug">{{ $card['desc'] }}</p>
+                    <p class="text-gray-600 text-sm mt-1 mb-3 leading-snug dark:text-gray-300">{{ $card['desc'] }}</p>
                 </div>
                 <div class="flex justify-center">
                     <button @click="{{ $card['action'] }}"
@@ -55,9 +55,9 @@
     <!-- Card Profil Pengguna -->
     <div x-cloak x-show="profileOpen" x-transition
         class="absolute inset-0 flex items-center justify-center z-50">
-        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] text-center">
-            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Profil Pengguna</h3>
-            <p class="text-gray-600 mb-6">Fitur ini masih dalam tahap pengembangan.</p>
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] text-center dark:bg-[#1f2126]">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Profil Pengguna</h3>
+            <p class="text-gray-600 mb-6 dark:text-gray-300">Fitur ini masih dalam tahap pengembangan.</p>
             <button @click="profileOpen = false"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
                 Tutup
@@ -65,12 +65,11 @@
         </div>
     </div>
 
-
     <!-- Card Bahasa -->
     <div x-cloak x-show="open" x-transition
          class="absolute inset-0 flex items-center justify-center z-50">
-        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite]">
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Pilih Bahasa</h3>
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] dark:bg-[#1f2126]">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Pilih Bahasa</h3>
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <template x-for="lang in ['id','gb','sa','fr','es','pt','cn','jp','kr']">
                     <button class="bg-blue-400 hover:bg-blue-500 text-white py-2 rounded-lg transition flex justify-center items-center gap-2">
@@ -89,33 +88,53 @@
         </div>
     </div>
 
-    <!-- Card Tema Tampilan -->
+    <!-- Card Tema Tampilan (Light / Dark only) -->
     <div x-cloak x-show="themeOpen" x-transition
          class="absolute inset-0 flex items-center justify-center z-50">
-        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite]">
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Tema Tampilan</h3>
-            <div class="flex justify-center gap-6 mb-8">
-                <button @click="document.documentElement.classList.remove('dark'); themeOpen = false"
-                        class="px-5 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-800 transition">
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] dark:bg-[#1f2126]">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Tema Tampilan</h3>
+
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Pilih <strong>Light</strong> atau <strong>Dark</strong>. Pilihan akan disimpan dan diterapkan secara permanen.
+            </p>
+
+            <div class="flex justify-center gap-4 mb-6">
+                <button id="btnThemeLight"
+                        class="theme-option px-6 py-3 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-800 transition"
+                        aria-pressed="false">
                     🌞 Mode Terang
                 </button>
-                <button @click="document.documentElement.classList.add('dark'); themeOpen = false"
-                        class="px-5 py-2 rounded-xl bg-gray-900 text-white hover:bg-gray-800 transition">
+
+                <button id="btnThemeDark"
+                        class="theme-option px-6 py-3 rounded-xl bg-gray-900 text-white hover:bg-gray-800 transition"
+                        aria-pressed="false">
                     🌙 Mode Gelap
                 </button>
             </div>
-            <button @click="themeOpen = false"
-                    class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
-                Tutup
-            </button>
+
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-6" id="themeCurrentNote">
+                <!-- populated by JS -->
+            </div>
+
+            <div class="flex justify-center gap-4">
+                <button @click="themeOpen = false"
+                        class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
+                    Tutup
+                </button>
+
+                <button id="themeResetBtn"
+                        class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition">
+                    Reset ke Light
+                </button>
+            </div>
         </div>
     </div>
 
     <!-- Card Notifikasi -->
     <div x-cloak x-show="notifOpen" x-transition
          class="absolute inset-0 flex items-center justify-center z-50">
-        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] text-left">
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Pengaturan Notifikasi</h3>
+        <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] text-left dark:bg-[#1f2126]">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center dark:text-gray-100">Pengaturan Notifikasi</h3>
 
             <div class="space-y-4 mb-8">
                 <label class="flex items-center justify-between">
@@ -148,10 +167,10 @@
     <!-- Card Tentang Sistem -->
     <div x-cloak x-show="systemOpen" x-transition
          class="absolute inset-0 flex items-center justify-center z-50">
-        <div class="bg-white/95 rounded-3xl p-10 px-12 shadow-2xl w-full max-w-2xl animate-[float_3s_ease-in-out_infinite]">
-            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Tentang Sistem</h3>
-            <p class="text-gray-600 mb-4">AQUA (Automatic Quality Utility for Agriculture)</p>
-            <ul class="text-left text-gray-700 list-disc list-inside mb-6 leading-relaxed">
+        <div class="bg-white/95 rounded-3xl p-10 px-12 shadow-2xl w-full max-w-2xl animate-[float_3s_ease-in-out_infinite] dark:bg-[#1f2126]">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Tentang Sistem</h3>
+            <p class="text-gray-600 mb-4 dark:text-gray-300">AQUA (Automatic Quality Utility for Agriculture)</p>
+            <ul class="text-left text-gray-700 list-disc list-inside mb-6 leading-relaxed dark:text-gray-300">
                 <li><span class="font-semibold">Versi Sistem:</span> 1.0</li>
                 <li><span class="font-semibold">Pengembang:</span> Universitas Pendidikan Indonesia dan SMKN 6 Bandung</li>
             </ul>
@@ -165,6 +184,68 @@
 
 <!-- Alpine.js -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- THEME HANDLER (Light / Dark only; default = Light when empty) -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const btnLight = document.getElementById('btnThemeLight');
+    const btnDark = document.getElementById('btnThemeDark');
+    const resetBtn = document.getElementById('themeResetBtn');
+    const note = document.getElementById('themeCurrentNote');
+
+    function markActive(mode) {
+        [btnLight, btnDark].forEach(b => {
+            b.classList.remove('ring-2','ring-offset-2','ring-blue-500','scale-[1.02]');
+            b.setAttribute('aria-pressed','false');
+        });
+
+        if (mode === 'light') {
+            btnLight.classList.add('ring-2','ring-offset-2','ring-blue-500','scale-[1.02]');
+            btnLight.setAttribute('aria-pressed','true');
+            note.textContent = 'Mode sekarang: Terang (Light).';
+        } else {
+            btnDark.classList.add('ring-2','ring-offset-2','ring-blue-500','scale-[1.02]');
+            btnDark.setAttribute('aria-pressed','true');
+            note.textContent = 'Mode sekarang: Gelap (Dark).';
+        }
+    }
+
+    // Init: prefer stored value; default = light if not set
+    function initThemeUI() {
+        const stored = localStorage.getItem('theme'); // 'dark' | 'light' | null
+        if (stored === 'dark') {
+            document.documentElement.classList.add('dark');
+            markActive('dark');
+        } else {
+            // default to light
+            document.documentElement.classList.remove('dark');
+            markActive('light');
+        }
+    }
+
+    // Handlers
+    btnLight.addEventListener('click', () => {
+        document.documentElement.classList.remove('dark');
+        try { localStorage.setItem('theme', 'light'); } catch(e){}
+        markActive('light');
+    });
+
+    btnDark.addEventListener('click', () => {
+        document.documentElement.classList.add('dark');
+        try { localStorage.setItem('theme', 'dark'); } catch(e){}
+        markActive('dark');
+    });
+
+    // Quick reset to Light (useful if user wants to undo)
+    resetBtn.addEventListener('click', () => {
+        document.documentElement.classList.remove('dark');
+        try { localStorage.setItem('theme', 'light'); } catch(e){}
+        markActive('light');
+    });
+
+    initThemeUI();
+});
+</script>
 
 <style>
 [x-cloak] { display: none !important; }
