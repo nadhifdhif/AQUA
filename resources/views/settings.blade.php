@@ -121,11 +121,6 @@
                         class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
                     Tutup
                 </button>
-
-                <button id="themeResetBtn"
-                        class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition">
-                    Reset ke Light
-                </button>
             </div>
         </div>
     </div>
@@ -190,7 +185,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const btnLight = document.getElementById('btnThemeLight');
     const btnDark = document.getElementById('btnThemeDark');
-    const resetBtn = document.getElementById('themeResetBtn');
     const note = document.getElementById('themeCurrentNote');
 
     function markActive(mode) {
@@ -234,13 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.classList.add('dark');
         try { localStorage.setItem('theme', 'dark'); } catch(e){}
         markActive('dark');
-    });
-
-    // Quick reset to Light (useful if user wants to undo)
-    resetBtn.addEventListener('click', () => {
-        document.documentElement.classList.remove('dark');
-        try { localStorage.setItem('theme', 'light'); } catch(e){}
-        markActive('light');
     });
 
     initThemeUI();
