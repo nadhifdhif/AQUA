@@ -112,19 +112,10 @@
                 </button>
             </div>
 
-            <div class="text-sm text-gray-500 dark:text-gray-400 mb-6" id="themeCurrentNote">
-                <!-- populated by JS -->
-            </div>
-
             <div class="flex justify-center gap-4">
                 <button @click="themeOpen = false"
                         class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition">
                     Tutup
-                </button>
-
-                <button id="themeResetBtn"
-                        class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition">
-                    Reset ke Light
                 </button>
             </div>
         </div>
@@ -190,8 +181,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const btnLight = document.getElementById('btnThemeLight');
     const btnDark = document.getElementById('btnThemeDark');
-    const resetBtn = document.getElementById('themeResetBtn');
-    const note = document.getElementById('themeCurrentNote');
 
     function markActive(mode) {
         [btnLight, btnDark].forEach(b => {
@@ -202,11 +191,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (mode === 'light') {
             btnLight.classList.add('ring-2','ring-offset-2','ring-blue-500','scale-[1.02]');
             btnLight.setAttribute('aria-pressed','true');
-            note.textContent = 'Mode sekarang: Terang (Light).';
         } else {
             btnDark.classList.add('ring-2','ring-offset-2','ring-blue-500','scale-[1.02]');
             btnDark.setAttribute('aria-pressed','true');
-            note.textContent = 'Mode sekarang: Gelap (Dark).';
         }
     }
 
@@ -234,13 +221,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.classList.add('dark');
         try { localStorage.setItem('theme', 'dark'); } catch(e){}
         markActive('dark');
-    });
-
-    // Quick reset to Light (useful if user wants to undo)
-    resetBtn.addEventListener('click', () => {
-        document.documentElement.classList.remove('dark');
-        try { localStorage.setItem('theme', 'light'); } catch(e){}
-        markActive('light');
     });
 
     initThemeUI();
