@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
+<!-- test push 8 mei 2026>
+
+
 @section('content')
-<div 
-    x-data="{ showCards: false }" 
+<div
+    x-data="{ showCards: false }"
     x-init="setTimeout(() => showCards = true, 300)"
     class="p-8 text-gray-800 text-center overflow-hidden"
     x-cloak
@@ -13,7 +16,7 @@
     </h1>
 
     <!-- Grid Dashboard -->
-    <div 
+    <div
         class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center"
         x-show="showCards"
     >
