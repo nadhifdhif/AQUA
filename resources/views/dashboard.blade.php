@@ -40,7 +40,7 @@
         <div class="glass-card fade-in delay-3 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-cloud text-3xl text-gray-500 mb-2"></i>
             <h2 class="font-semibold">Emisi Karbon</h2>
-            <p class="text-2xl font-bold">412 ppm</p>
+            <p class="text-2xl font-bold">419 ppm</p>
             <p class="text-sm text-gray-600">Aman</p>
         </div>
 
