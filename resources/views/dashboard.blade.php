@@ -31,7 +31,7 @@
         <!-- Card 2 -->
         <div class="glass-card fade-in delay-2 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-droplet text-3xl text-blue-500 mb-2"></i>
-            <h2 class="font-semibold">Kelembapan</h2>
+            <h2 class="font-semibold">Humidity</h2>
             <p class="text-2xl font-bold">67%</p>
             <p class="text-sm text-gray-600">Optimal</p>
         </div>
