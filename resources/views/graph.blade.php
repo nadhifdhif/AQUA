@@ -68,7 +68,7 @@ function chartSlider() {
         lembap: {
             title: "Grafik Kelembapan (%)",
             labels: ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'],
-            values: [76,78,80,82,79,81,83],
+            values: [77,79,80,82,79,81,83],
             color: 'rgba(16,185,129,1)',
             bg: 'rgba(16,185,129,0.2)'
         },
