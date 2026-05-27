@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @php
                 $devices = [
-                    ['name' => 'Pompa Air', 'status' => 'Aktif'],
+                    ['name' => 'Water Pump', 'status' => 'Aktif'],
                     ['name' => 'Kipas Pendingin', 'status' => 'Nonaktif'],
                     ['name' => 'Lampu Greenhouse', 'status' => 'Aktif'],
                     ['name' => 'Sensor Kelembapan Tanah', 'status' => 'Aktif'],
