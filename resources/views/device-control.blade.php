@@ -18,9 +18,9 @@
                 $devices = [
                     ['name' => 'Water Pump', 'status' => 'Aktif'],
                     ['name' => 'Fan', 'status' => 'Nonaktif'],
-                    ['name' => 'Lampu Greenhouse', 'status' => 'Aktif'],
-                    ['name' => 'Sensor Kelembapan Tanah', 'status' => 'Aktif'],
-                    ['name' => 'Sensor Hujan', 'status' => 'Aktif'],
+                    ['name' => 'Lamp', 'status' => 'Aktif'],
+                    ['name' => 'Humidity Soil Sensor', 'status' => 'Aktif'],
+                    ['name' => 'Rain Sensor', 'status' => 'Aktif'],
                     ['name' => 'Sensor Emisi Karbon', 'status' => 'Nonaktif'],
                 ];
             @endphp
