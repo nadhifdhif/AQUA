@@ -18,7 +18,7 @@
                 $devices = [
                     ['name' => 'Water Pump', 'status' => 'Active'],
                     ['name' => 'Fan', 'status' => 'Inactive'],
-                    ['name' => 'Lamp', 'status' => 'Aktif'],
+                    ['name' => 'Lamp', 'status' => 'Active'],
                     ['name' => 'Humidity Soil Sensor', 'status' => 'Aktif'],
                     ['name' => 'Rain Sensor', 'status' => 'Aktif'],
                     ['name' => 'Carbon Emission Sensor', 'status' => 'Nonaktif'],
