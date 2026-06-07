@@ -11,7 +11,7 @@
                     <th class="py-3 px-4 text-left">No</th>
                     <th class="py-3 px-4 text-left">Tanggal & Waktu</th>
                     <th class="py-3 px-4 text-left">Temperature (°C)</th>
-                    <th class="py-3 px-4 text-left">Kelembapan (%)</th>
+                    <th class="py-3 px-4 text-left">Humidity (%)</th>
                     <th class="py-3 px-4 text-left">Emisi Karbon (ppm)</th>
                     <th class="py-3 px-4 text-left">Kelembapan Tanah (%)</th>
                     <th class="py-3 px-4 text-left">Status Hujan</th>
