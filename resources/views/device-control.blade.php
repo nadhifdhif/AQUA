@@ -10,7 +10,7 @@
         class="w-full max-w-6xl bg-white/10 backdrop-blur-lg rounded-[1.5rem] shadow-[0_1px_5px_rgba(0,0,0,0.1)] p-8 border border-white/10 transition-all duration-700 ease-out"
         :class="show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-[0.98]'"
     >
-        <h1 class="text-3xl font-semibold text-[#004aad] mb-8 text-center drop-shadow-sm">Device Control</h1>
+        <h1 class="text-3xl font-semibold text-[#004aad] mb-8 text-center drop-shadow-sm">Device Control.</h1>
 
         <!-- Grid 3 kolom -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
