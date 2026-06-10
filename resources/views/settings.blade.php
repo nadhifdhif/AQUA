@@ -25,12 +25,12 @@
         <!-- Card Template -->
         @php
             $cards = [
-                ['title' => 'Profil Pengguna', 'desc' => 'Kelola nama dan informasi akun', 'btn' => 'Edit', 'action' => 'profileOpen = true'],
-                ['title' => 'Keamanan', 'desc' => 'Ubah kata sandi akun Anda', 'btn' => 'Update', 'action' => "window.location.href='" . route('profile.edit') . "'"],
-                ['title' => 'Tema Tampilan', 'desc' => 'Sesuaikan mode terang atau gelap', 'btn' => 'Sesuaikan', 'action' => 'themeOpen = true'],
-                ['title' => 'Bahasa', 'desc' => 'Atur bahasa antarmuka', 'btn' => 'Pilih', 'action' => 'open = true'],
-                ['title' => 'Notifikasi', 'desc' => 'Kelola pemberitahuan sistem', 'btn' => 'Kelola', 'action' => 'notifOpen = true'],
-                ['title' => 'Tentang Sistem', 'desc' => 'Lihat versi & pengembang', 'btn' => 'Detail', 'action' => 'systemOpen = true'],
+                ['title' => 'User Profile', 'desc' => 'Kelola nama dan informasi akun', 'btn' => 'Edit', 'action' => 'profileOpen = true'],
+                ['title' => 'Security', 'desc' => 'Change your Password', 'btn' => 'Update', 'action' => "window.location.href='" . route('profile.edit') . "'"],
+                ['title' => 'Theme', 'desc' => 'Sesuaikan mode terang atau gelap', 'btn' => 'Sesuaikan', 'action' => 'themeOpen = true'],
+                ['title' => 'Language', 'desc' => 'Set Your Languange', 'btn' => 'Pilih', 'action' => 'open = true'],
+                ['title' => 'Notification', 'desc' => 'Kelola pemberitahuan sistem', 'btn' => 'Kelola', 'action' => 'notifOpen = true'],
+                ['title' => 'About System', 'desc' => 'Lihat versi & pengembang', 'btn' => 'Detail', 'action' => 'systemOpen = true'],
             ];
         @endphp
 
@@ -56,8 +56,8 @@
     <div x-cloak x-show="profileOpen" x-transition
         class="absolute inset-0 flex items-center justify-center z-50">
         <div class="bg-white/95 rounded-3xl p-8 shadow-2xl w-full max-w-md animate-[float_3s_ease-in-out_infinite] text-center dark:bg-[#1f2126]">
-            <h3 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Profil Pengguna</h3>
-            <p class="text-gray-600 mb-6 dark:text-gray-300">Fitur ini masih dalam tahap pengembangan.</p>
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">User Profile</h3>
+            <p class="text-gray-600 mb-6 dark:text-gray-300">This feature is under development.</p>
             <button @click="profileOpen = false"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
                 Tutup
