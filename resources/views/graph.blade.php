@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex flex-col items-center justify-center min-h-[90vh] text-center fade-in-up space-y-8">
-    <h1 class="text-3xl font-bold text-blue-700">📊 Grafik Sensor</h1>
+    <h1 class="text-3xl font-bold text-blue-700">Sensor Graph</h1>
 
     <div 
         x-data="chartSlider()" 
