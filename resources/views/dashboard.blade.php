@@ -24,7 +24,7 @@
         <div class="glass-card fade-in delay-1 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-temperature-high text-3xl text-red-500 mb-2"></i>
             <h2 class="font-semibold">Temperature</h2>
-            <p class="text-2xl font-bold">29°C</p>
+            <p class="text-2xl font-bold">20°C</p>
             <p class="text-sm text-gray-600">Normal</p>
         </div>
 
