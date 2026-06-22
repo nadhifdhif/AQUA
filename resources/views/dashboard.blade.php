@@ -24,8 +24,8 @@
         <div class="glass-card fade-in delay-1 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-temperature-high text-3xl text-red-500 mb-2"></i>
             <h2 class="font-semibold">Temperature</h2>
-            <p class="text-2xl font-bold">20°C</p>
-            <p class="text-sm text-gray-600">Normal</p>
+            <p class="text-2xl font-bold">26°C</p>
+            <p class="text-sm text-gray-600">Moderate</p>
         </div>
 
         <!-- Card 2 -->
@@ -57,7 +57,7 @@
             <i class="fa-solid fa-cloud-rain text-3xl text-indigo-500 mb-2"></i>
             <h2 class="font-semibold">Rain Detection</h2>
             <p class="text-2xl font-bold">No Rain Detected</p>
-            <p class="text-sm text-gray-600">Langit Cerah</p>
+            <p class="text-sm text-gray-600">Clear</p>
         </div>
 
         <!-- Card 6 -->
