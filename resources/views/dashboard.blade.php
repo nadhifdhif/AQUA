@@ -49,7 +49,7 @@
             <i class="fa-solid fa-seedling text-3xl text-green-600 mb-2"></i>
             <h2 class="font-semibold">Soil Humidity</h2>
             <p class="text-2xl font-bold">65%</p>
-            <p class="text-sm text-gray-600">Stabil</p>
+            <p class="text-sm text-gray-600">Stable</p>
         </div>
 
         <!-- Card 5 -->
