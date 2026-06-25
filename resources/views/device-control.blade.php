@@ -20,7 +20,7 @@
                     ['name' => 'Fan', 'status' => 'Inactive'],
                     ['name' => 'Lamp', 'status' => 'Active'],
                     ['name' => 'Humidity Soil Sensor', 'status' => 'Active'],
-                    ['name' => 'Rain Sensor', 'status' => 'Aktif'],
+                    ['name' => 'Rain Sensor', 'status' => 'Active'],
                     ['name' => 'Carbon Emission Sensor', 'status' => 'Nonaktif'],
                 ];
             @endphp
