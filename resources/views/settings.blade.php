@@ -27,8 +27,8 @@
             $cards = [
                 ['title' => 'User Profile', 'desc' => 'Kelola nama dan informasi akun', 'btn' => 'Edit', 'action' => 'profileOpen = true'],
                 ['title' => 'Security', 'desc' => 'Change your Password', 'btn' => 'Update', 'action' => "window.location.href='" . route('profile.edit') . "'"],
-                ['title' => 'Theme', 'desc' => 'Sesuaikan mode terang atau gelap', 'btn' => 'Sesuaikan', 'action' => 'themeOpen = true'],
-                ['title' => 'Language', 'desc' => 'Set Your Languange', 'btn' => 'Pilih', 'action' => 'open = true'],
+                ['title' => 'Themes', 'desc' => 'Sesuaikan mode terang atau gelap', 'btn' => 'Sesuaikan', 'action' => 'themeOpen = true'],
+                ['title' => 'Languages', 'desc' => 'Set Your Languange', 'btn' => 'Pilih', 'action' => 'open = true'],
                 ['title' => 'Notification', 'desc' => 'Kelola pemberitahuan sistem', 'btn' => 'Kelola', 'action' => 'notifOpen = true'],
                 ['title' => 'About System', 'desc' => 'Lihat versi & pengembang', 'btn' => 'Detail', 'action' => 'systemOpen = true'],
             ];
