@@ -14,8 +14,8 @@
                     <th class="py-3 px-4 text-left">Humidity (%)</th>
                     <th class="py-3 px-4 text-left">Carbon Emissions (ppm)</th>
                     <th class="py-3 px-4 text-left">Soil Humidity (%)</th>
-                    <th class="py-3 px-4 text-left">Status Hujan</th>
-                    <th class="py-3 px-4 text-left">Status Pompa</th>
+                    <th class="py-3 px-4 text-left">Rain Detection</th>
+                    <th class="py-3 px-4 text-left">Pump Status</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
