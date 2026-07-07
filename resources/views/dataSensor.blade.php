@@ -36,9 +36,9 @@
                         </td>
                         <td class="py-3 px-4">
                             @if ($data->status_pompa === 'Aktif')
-                                <span class="text-green-600 font-semibold">Aktif</span>
+                                <span class="text-green-600 font-semibold">Active</span>
                             @else
-                                <span class="text-red-500 font-semibold">Nonaktif</span>
+                                <span class="text-red-500 font-semibold">Inactive</span>
                             @endif
                         </td>
                     </tr>
