@@ -31,7 +31,7 @@
                             @if ($data->status_hujan === 'Hujan')
                                 <span class="text-blue-600 font-semibold">Hujan</span>
                             @else
-                                <span class="text-gray-600">Tidak Hujan</span>
+                                <span class="text-gray-600">No Rain</span>
                             @endif
                         </td>
                         <td class="py-3 px-4">
