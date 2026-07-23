@@ -14,8 +14,8 @@
                     <th class="py-3 px-4 text-left">Humidity (%)</th>
                     <th class="py-3 px-4 text-left">Carbon Emissions (ppm)</th>
                     <th class="py-3 px-4 text-left">Soil Humidity (%)</th>
-                    <th class="py-3 px-4 text-left">Status Hujan</th>
-                    <th class="py-3 px-4 text-left">Status Pompa</th>
+                    <th class="py-3 px-4 text-left">Rain Detection</th>
+                    <th class="py-3 px-4 text-left">Pump Status</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -31,14 +31,14 @@
                             @if ($data->status_hujan === 'Hujan')
                                 <span class="text-blue-600 font-semibold">Hujan</span>
                             @else
-                                <span class="text-gray-600">Tidak Hujan</span>
+                                <span class="text-gray-600">No Rain</span>
                             @endif
                         </td>
                         <td class="py-3 px-4">
                             @if ($data->status_pompa === 'Aktif')
-                                <span class="text-green-600 font-semibold">Aktif</span>
+                                <span class="text-green-600 font-semibold">Active</span>
                             @else
-                                <span class="text-red-500 font-semibold">Nonaktif</span>
+                                <span class="text-red-500 font-semibold">Inactive</span>
                             @endif
                         </td>
                     </tr>

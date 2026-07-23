@@ -12,7 +12,7 @@
 >
     <!-- Header Animasi Ngetik -->
     <h1 class="text-3xl font-bold text-blue-800 mb-10">
-        <span class="typewriter">bienvenue, {{ Auth::user()->name }}.</span>
+        <span class="typewriter">welcome, {{ Auth::user()->name }}.</span>
     </h1>
 
     <!-- Grid Dashboard -->
@@ -65,7 +65,7 @@
             <i class="fa-solid fa-water text-3xl text-blue-600 mb-2"></i>
             <h2 class="font-semibold">Pump Status</h2>
             <p class="text-2xl font-bold text-green-600">Active</p>
-            <p class="text-sm text-gray-600">Operating</p>
+            <p class="text-sm text-gray-600">Standby</p>
         </div>
     </div>
 </div>
