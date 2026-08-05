@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<!-- test push 8 mei 2026>
+<!-- test push 4 agustus 2026>
 
 
 @section('content')
@@ -12,7 +12,7 @@
 >
     <!-- Header Animasi Ngetik -->
     <h1 class="text-3xl font-bold text-blue-800 mb-10">
-        <span class="typewriter">welcome, {{ Auth::user()->name }}.</span>
+        <span class="typewriter">wellcome, {{ Auth::user()->name }}.</span>
     </h1>
 
     <!-- Grid Dashboard -->
@@ -56,8 +56,8 @@
         <div class="glass-card fade-in delay-5 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-cloud-rain text-3xl text-indigo-500 mb-2"></i>
             <h2 class="font-semibold">Rain Detection</h2>
-            <p class="text-2xl font-bold">No Rain Detected</p>
-            <p class="text-sm text-gray-600">Clear</p>
+            <p class="text-2xl font-bold">Rain Detected</p>
+            <p class="text-sm text-gray-600">Rain</p>
         </div>
 
         <!-- Card 6 -->
