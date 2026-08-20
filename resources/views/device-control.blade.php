@@ -21,7 +21,7 @@
                     ['name' => 'Lamp', 'status' => 'Active'],
                     ['name' => 'Humidity Soil Sensor', 'status' => 'Active'],
                     ['name' => 'Rain Sensor', 'status' => 'Active'],
-                    ['name' => 'Carbon Emission Sensor', 'status' => 'Nonaktif'],
+                    ['name' => 'Carbon Emission Sensor', 'status' => 'Inactive'],
                 ];
             @endphp
 
