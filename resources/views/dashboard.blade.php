@@ -12,7 +12,7 @@
 >
     <!-- Header Animasi Ngetik -->
     <h1 class="text-3xl font-bold text-blue-800 mb-10">
-        <span class="typewriter">wellcome, {{ Auth::user()->name }}.</span>
+        <span class="typewriter">welcome, {{ Auth::user()->name }}.</span>
     </h1>
 
     <!-- Grid Dashboard -->
