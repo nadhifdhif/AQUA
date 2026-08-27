@@ -9,7 +9,7 @@
             <thead class="bg-blue-600 text-white fade-in-up" style="animation-delay: 0.2s;">
                 <tr>
                     <th class="py-3 px-4 text-left">No</th>
-                    <th class="py-3 px-4 text-left">Tanggal & Waktu</th>
+                    <th class="py-3 px-4 text-left">Datetime</th>
                     <th class="py-3 px-4 text-left">Temperature (°C)</th>
                     <th class="py-3 px-4 text-left">Humidity (%)</th>
                     <th class="py-3 px-4 text-left">Carbon Emissions (ppm)</th>
