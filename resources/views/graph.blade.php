@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex flex-col items-center justify-center min-h-[90vh] text-center fade-in-up space-y-8">
-    <h1 class="text-3xl font-bold text-blue-700">Sensor Graphs.</h1>
+    <h1 class="text-3xl font-bold text-blue-700">Sensor Graphs</h1>
 
     <div 
         x-data="chartSlider()" 
@@ -67,7 +67,7 @@ function chartSlider() {
 
         lembap: {
             title: "Grafik Kelembapan (%)",
-            labels: ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'],
+            labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
             values: [77,79,80,82,79,81,83],
             color: 'rgba(16,185,129,1)',
             bg: 'rgba(16,185,129,0.2)'
