@@ -59,7 +59,7 @@ function chartSlider() {
 
         suhu: {
             title: "Grafik Suhu (°C)",
-            labels: ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'],
+            labels: ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimance'],
             values: [26,27,28,29,27,30,31],
             color: 'rgba(37,99,235,1)',
             bg: 'rgba(37,99,235,0.2)'
