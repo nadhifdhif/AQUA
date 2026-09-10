@@ -33,7 +33,7 @@
             <!-- Ubah Kata Sandi -->
             <div class="p-4 sm:p-8 bg-white/80 dark:bg-gray-800/80 shadow-xl backdrop-blur-md sm:rounded-2xl transition-all duration-500 hover:scale-[1.01]">
                 <div class="max-w-xl">
-                    <livewire:profile.update-password-form />
+                    <livewire:profile.update-password-forms />
                 </div>
             </div>
 
