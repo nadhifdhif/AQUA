@@ -31,15 +31,15 @@
         <!-- Card 2 -->
         <div class="glass-card fade-in delay-2 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-droplet text-3xl text-blue-500 mb-2"></i>
-            <h2 class="font-semibold">Humidity</h2>
+            <h2 class="font-semibold">Humidite</h2>
             <p class="text-2xl font-bold">55%</p>
-            <p class="text-sm text-gray-600">Optimal</p>
+            <p class="text-sm text-gray-600">Optimale</p>
         </div>
 
         <!-- Card 3 -->
         <div class="glass-card fade-in delay-3 w-64 h-40 flex flex-col justify-center items-center">
             <i class="fa-solid fa-cloud text-3xl text-gray-500 mb-2"></i>
-            <h2 class="font-semibold">Carbon Emissions</h2>
+            <h2 class="font-semibold">Emissions du Carbon</h2>
             <p class="text-2xl font-bold">419 ppm</p>
             <p class="text-sm text-gray-600">Safe</p>
         </div>
