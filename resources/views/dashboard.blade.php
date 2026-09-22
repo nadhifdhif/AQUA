@@ -25,7 +25,7 @@
             <i class="fa-solid fa-temperature-high text-3xl text-red-500 mb-2"></i>
             <h2 class="font-semibold">Temperature</h2>
             <p class="text-2xl font-bold">17°C</p>
-            <p class="text-sm text-gray-600">Cold</p>
+            <p class="text-sm text-gray-600">Froid</p>
         </div>
 
         <!-- Card 2 -->
