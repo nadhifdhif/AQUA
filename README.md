@@ -1,3 +1,1 @@
-Author: Naufal Nadhif
-===
 Discontinued 
